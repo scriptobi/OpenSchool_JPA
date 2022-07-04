@@ -2,11 +2,10 @@ package com.scriptobi.openschool.controllers;
 
 import com.scriptobi.openschool.models.StudentEntity;
 import com.scriptobi.openschool.services.StudentService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.sql.Timestamp;
 import java.util.List;
 
 @RestController
@@ -18,5 +17,14 @@ public class StudentController {
     @GetMapping(path = "")
     public List<StudentEntity> findAllStudents() {
         return studentService.findAll();
+    }
+
+    @GetMapping(path = "/{matricule}")
+    public StudentEntity findById(String matricule) { return studentService.findById(matricule).get(); }
+
+    @PostMapping(path = "/new")
+    public StudentEntity save(String matricule, String firstName, String lastName, String birthdate, String city) {
+        Timestamp birthDate = Timestamp.valueOf(birthdate);
+        return studentService.saveStudent(new StudentEntity(matricule, firstName, lastName, birthDate, city));
     }
 }

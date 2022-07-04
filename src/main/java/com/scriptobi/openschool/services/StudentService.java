@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 @Service("StudentService")
 public class StudentService {
@@ -17,4 +18,5 @@ public class StudentService {
     }
 
     public List<StudentEntity> findAll() { return studentRepo.findAll(); }
+    public Optional<StudentEntity> findById(String matricule) { return studentRepo.findById(matricule); }
 }
