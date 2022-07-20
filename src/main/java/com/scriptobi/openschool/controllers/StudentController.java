@@ -15,7 +15,7 @@ public class StudentController {
     @Resource(name = "StudentService")
     private StudentService studentService;
 
-    @GetMapping(path = "")
+    @GetMapping(path = "/")
     public List<StudentEntity> findAllStudents() {
         return studentService.findAll();
     }

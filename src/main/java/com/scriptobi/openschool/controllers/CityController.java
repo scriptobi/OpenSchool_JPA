@@ -2,10 +2,7 @@ package com.scriptobi.openschool.controllers;
 
 import com.scriptobi.openschool.entities.CityEntity;
 import com.scriptobi.openschool.services.CityService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -23,5 +20,15 @@ public class CityController {
     public CityEntity insertNewCity(Integer cpl, String name) {
         CityEntity newCity = new CityEntity(cpl, name);
         return cityService.saveCity(newCity);
+    }
+
+    @PutMapping(path = "/update/{cpl}")
+    public CityEntity updateCityName(Integer cpl, String name) {
+        return cityService.updateCityName(cpl, name);
+    }
+
+    @GetMapping(path = "/{cpl}")
+    public CityEntity findtCityById(Integer cpl) {
+        return cityService.findById(cpl);
     }
 }
