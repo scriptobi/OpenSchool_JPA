@@ -1,6 +1,6 @@
 package com.scriptobi.openschool.services;
 
-import com.scriptobi.openschool.models.StudentEntity;
+import com.scriptobi.openschool.entities.StudentEntity;
 import com.scriptobi.openschool.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

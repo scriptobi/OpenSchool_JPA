@@ -1,6 +1,6 @@
 package com.scriptobi.openschool.controllers;
 
-import com.scriptobi.openschool.models.StudentEntity;
+import com.scriptobi.openschool.entities.StudentEntity;
 import com.scriptobi.openschool.services.StudentService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
